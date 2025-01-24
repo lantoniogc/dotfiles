@@ -7,7 +7,9 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "vim_mode": false,
+  "buffer_font_family": "JetBrainsMonoNL Nerd Font",
+  "vim_mode": true,
+  "relative_line_numbers": true,
   "assistant": {
     "default_model": {
       "provider": "zed.dev",
@@ -24,13 +26,13 @@
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "Rosé Pine"
+    "dark": "Kanagawa Dragon"
   },
   "lsp": {
     "pyright": {
       "settings": {
         "python.analysis": {
-          "typeCheckingMode": "off"
+          "typeCheckingMode": "standard"
         }
       }
     }

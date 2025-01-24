@@ -1,12 +1,29 @@
 # General
-theme = nord
-font-size = 16
+## Style
+theme = Kanagawa Dragon
 cursor-style = block
 adjust-cell-height = 20%
-mouse-hide-while-typing = true
-window-padding-balance = true
-window-save-state = always
 background = 1C2021
+background-opacity = 0.95
+background-blur-radius = 20
+
+## Behaviors
+mouse-hide-while-typing = true
+confirm-close-surface = false
+
+## Fonts
+font-family = JetBrainsMonoNL Nerd Font
+font-size = 16
+
+## MacOS
+macos-titlebar-style = hidden
+macos-option-as-alt = true
+
+## Window
+window-padding-balance = true
+window-padding-x = 10
+window-padding-y = 10
+window-save-state = always
 
 # Keybindings
 ## Splits
