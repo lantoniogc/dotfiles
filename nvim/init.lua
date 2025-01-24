@@ -422,7 +422,7 @@ require('lazy').setup({
           settings = {
             python = {
               analysis = {
-                typeCheckingMode = 'off',
+                typeCheckingMode = 'standard',
               },
             },
           },
@@ -641,11 +641,38 @@ require('lazy').setup({
   },
   -- Colorscheme.
   {
-    'AlexvZyl/nordic.nvim',
+    'rebelot/kanagawa.nvim',
     lazy = false,
     priority = 1000,
     init = function(_)
-      vim.cmd 'colorscheme nordic'
+      vim.cmd 'colorscheme kanagawa'
+    end,
+    config = function()
+      require('kanagawa').setup {
+        compile = false, -- enable compiling the colorscheme
+        undercurl = true, -- enable undercurls
+        commentStyle = { italic = true },
+        functionStyle = {},
+        keywordStyle = { italic = true },
+        statementStyle = { bold = true },
+        typeStyle = {},
+        transparent = false, -- do not set background color
+        dimInactive = false, -- dim inactive window `:h hl-NormalNC`
+        terminalColors = true, -- define vim.g.terminal_color_{0,17}
+        colors = { -- add/modify theme and palette colors
+          palette = {},
+          theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
+        },
+        ---@diagnostic disable-next-line: unused-local
+        overrides = function(colors) -- add/modify highlights
+          return {}
+        end,
+        theme = 'dragon',
+        background = {
+          dark = 'dragon',
+          light = 'lotus',
+        },
+      }
     end,
   },
   -- Highlight todo, notes, etc in comments
@@ -668,6 +695,13 @@ require('lazy').setup({
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
+
+      require('mini.pairs').setup()
+
+      require('mini.bracketed').setup()
+
+      require('mini.files').setup()
+      vim.keymap.set('n', '\\', ':lua MiniFiles.open()<cr>', { desc = 'Mini [F]iles' })
 
       local statusline = require 'mini.statusline'
       statusline.setup { use_icons = vim.g.have_nerd_font }
@@ -712,7 +746,7 @@ require('lazy').setup({
   -- require 'kickstart.plugins.indent_line',
   require 'kickstart.plugins.lint',
   -- require 'kickstart.plugins.autopairs',
-  require 'kickstart.plugins.neo-tree',
+  -- require 'kickstart.plugins.neo-tree',
   require 'kickstart.plugins.gitsigns',
 
   { import = 'custom.plugins' },
