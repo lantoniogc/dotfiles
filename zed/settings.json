@@ -7,42 +7,61 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "edit_predictions": {
+    "mode": "subtle",
+    "copilot": {
+      "proxy": null,
+      "proxy_no_verify": null
+    },
+    "enabled_in_text_threads": false
+  },
+  "features": {
+    "edit_prediction_provider": "zed"
+  },
+  "icon_theme": "Material Icon Theme",
   "buffer_font_family": "JetBrainsMonoNL Nerd Font",
   "vim_mode": true,
-  "relative_line_numbers": true,
-  "assistant": {
+  "relative_line_numbers": false,
+  "agent": {
+    "default_profile": "minimal",
     "default_model": {
       "provider": "zed.dev",
-      "model": "claude-3-5-sonnet-latest"
+      "model": "claude-3-7-sonnet-latest"
     },
     "version": "2"
   },
   "ensure_final_newline_on_save": false,
-  // "features": {
-  //   "inline_completion_provider": "supermaven"
-  // },
   "ui_font_size": 16,
-  "buffer_font_size": 16,
+  "buffer_font_size": 16.0,
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "Kanagawa Dragon"
+    "dark": "Kanso Zen"
   },
   "lsp": {
     "pyright": {
       "settings": {
         "python.analysis": {
           "typeCheckingMode": "standard"
+        },
+        "python": {
+          "pythonPath": ".venv/bin/python"
         }
       }
     }
   },
   "languages": {
-    "YAML": {
-      "show_inline_completions": true
-    },
     "Python": {
-      "language_servers": ["!ruff", "!pylsp", "!python-refactoring", "pyright"]
+      "language_servers": ["pyright", "ruff"]
+    },
+    "TypeScript": {
+      "language_servers": ["typescript-language-server", "!vtsls", "..."]
+    },
+    "TSX": {
+      "language_servers": ["typescript-language-server", "!vtsls", "..."]
+    },
+    "JavaScript": {
+      "language_servers": ["typescript-language-server", "!vtsls", "..."]
     }
   }
 }
