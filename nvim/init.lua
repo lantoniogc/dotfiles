@@ -673,14 +673,14 @@ require('lazy').setup({
   },
   -- Colorscheme.
   {
-    'rebelot/kanagawa.nvim',
+    'webhooked/kanso.nvim',
     lazy = false,
     priority = 1000,
     init = function(_)
-      vim.cmd 'colorscheme kanagawa'
+      vim.cmd 'colorscheme kanso'
     end,
     config = function()
-      require('kanagawa').setup {
+      require('kanso').setup {
         compile = false, -- enable compiling the colorscheme
         undercurl = true, -- enable undercurls
         commentStyle = { italic = true },
@@ -693,16 +693,16 @@ require('lazy').setup({
         terminalColors = true, -- define vim.g.terminal_color_{0,17}
         colors = { -- add/modify theme and palette colors
           palette = {},
-          theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
+          theme = { zen = {}, pearl = {}, ink = {}, all = {} },
         },
         ---@diagnostic disable-next-line: unused-local
         overrides = function(colors) -- add/modify highlights
           return {}
         end,
-        theme = 'dragon',
+        theme = 'zen',
         background = {
-          dark = 'dragon',
-          light = 'lotus',
+          dark = 'zen',
+          light = 'pearl',
         },
       }
     end,

@@ -1,9 +1,8 @@
 # General
 ## Style
-theme = Kanagawa Dragon
+theme = kanso-zen
 cursor-style = block
 adjust-cell-height = 20%
-background = 1C2021
 background-opacity = 0.95
 background-blur-radius = 20
 
