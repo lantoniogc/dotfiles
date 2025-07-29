@@ -2,11 +2,19 @@
 
 add_newline = false
 command_timeout = 1000
-format = """($os$username$hostname$python$rust$kubernetes$directory$git_branch$git_status
-)$character"""
-
-[line_break]
-disabled = true
+format = """(
+$os\
+$username\
+$hostname\
+$env_var\
+$mise\
+$python\
+$rust\
+$kubernetes\
+$directory\
+$git_branch\
+$git_status\
+)$line_break$character"""
 
 # Drop ugly default prompt characters
 [character]
@@ -16,12 +24,13 @@ error_symbol = ''
 # ---
 
 [os]
-format = '[$symbol](bold white) '   
+format = '[$symbol](bold white) '
 disabled = false
 
 [os.symbols]
 Windows = ' '
 Arch = '󰣇'
+CachyOS = '󰣇'
 Ubuntu = ''
 Macos = '󰀵'
 Pop = ''
@@ -88,3 +97,16 @@ disabled = false
 style = 'bold bright-green'
 format = '[ ${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 
+[env_var]
+
+[env_var.MISE]
+variable = "MISE_ENV"
+format = '[[$symbol$env_value ](bold red)]($style)'
+symbol = " "
+
+[mise]
+disabled = false
+format = '[[$symbol](bold green)]($style)'
+symbol = "󱁤 "
+healthy_symbol = " "
+unhealthy_symbol = " "
