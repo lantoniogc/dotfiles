@@ -415,18 +415,14 @@ require('lazy').setup({
       local servers = {
         -- clangd = {},
         -- gopls = {},
-        pyright = {
-          -- cmd = { ... },
-          -- filetypes = { ... },
-          -- capabilities = { ... },
+
+        ty = {
           settings = {
-            python = {
-              analysis = {
-                typeCheckingMode = 'standard',
-              },
-            },
+            ty = {},
           },
         },
+
+        terraformls = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
