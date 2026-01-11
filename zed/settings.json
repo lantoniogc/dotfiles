@@ -7,61 +7,115 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "sticky_scroll": {
+    "enabled": true,
+  },
+  "terminal": {
+    "toolbar": {
+      "breadcrumbs": false,
+    },
+  },
+  "collaboration_panel": {
+    "button": false,
+  },
+  "bottom_dock_layout": "contained",
+  "ui_font_family": ".ZedSans",
+  "inlay_hints": {
+    "enabled": true,
+  },
   "edit_predictions": {
     "mode": "subtle",
     "copilot": {
       "proxy": null,
-      "proxy_no_verify": null
+      "proxy_no_verify": null,
     },
-    "enabled_in_text_threads": false
+    "enabled_in_text_threads": false,
   },
+  "show_edit_predictions": true,
   "features": {
-    "edit_prediction_provider": "zed"
+    "edit_prediction_provider": "copilot",
   },
   "icon_theme": "Material Icon Theme",
   "buffer_font_family": "JetBrainsMonoNL Nerd Font",
   "vim_mode": true,
-  "relative_line_numbers": false,
+  "relative_line_numbers": "disabled",
   "agent": {
-    "default_profile": "minimal",
+    "default_profile": "write",
     "default_model": {
-      "provider": "zed.dev",
-      "model": "claude-3-7-sonnet-latest"
+      "provider": "copilot_chat",
+      "model": "claude-sonnet-4.5",
     },
-    "version": "2"
   },
   "ensure_final_newline_on_save": false,
   "ui_font_size": 16,
   "buffer_font_size": 16.0,
   "theme": {
     "mode": "system",
-    "light": "One Light",
-    "dark": "Kanso Zen"
+    "light": "Kanso Pearl (Blurred)",
+    "dark": "Catppuccin Espresso (Blur) [Heavy]",
   },
   "lsp": {
-    "pyright": {
+    "ty": {
       "settings": {
-        "python.analysis": {
-          "typeCheckingMode": "standard"
+        "diagnosticMode": "workspace",
+        "inlayHints": {
+          "callArgumentNames": true,
         },
+        "experimental": {
+          "rename": true,
+        },
+      },
+    },
+    "basedpyright": {
+      "settings": {
         "python": {
-          "pythonPath": ".venv/bin/python"
-        }
-      }
-    }
+          "pythonPath": ".venv/bin/python",
+        },
+        "basedpyright.analysis": {
+          "diagnosticMode": "workspace",
+          "typeCheckingMode": "standard",
+          "inlayHints": {
+            "callArgumentNames": false,
+          },
+        },
+      },
+    },
+    "ruff": {
+      "initialization_options": {
+        "settings": {
+          "lint": {
+            "config": "./pyproject.toml",
+          },
+        },
+      },
+    },
+    "rust-analyzer": {
+      "initialization_options": {
+        "cachePriming": {
+          "enabled": false,
+        },
+      },
+    },
   },
   "languages": {
     "Python": {
-      "language_servers": ["pyright", "ruff"]
+      "language_servers": ["ty", "ruff"],
+      "format_on_save": "on",
+      "code_actions_on_format": {
+        // Organize imports
+        "source.organizeImports.ruff": true,
+        // Fix all auto-fixable lint violations
+        "source.fixAll.ruff": true,
+      },
     },
     "TypeScript": {
-      "language_servers": ["typescript-language-server", "!vtsls", "..."]
+      "language_servers": ["typescript-language-server", "!vtsls", "..."],
     },
     "TSX": {
-      "language_servers": ["typescript-language-server", "!vtsls", "..."]
+      "language_servers": ["typescript-language-server", "!vtsls", "..."],
     },
     "JavaScript": {
-      "language_servers": ["typescript-language-server", "!vtsls", "..."]
-    }
-  }
+      "language_servers": ["typescript-language-server", "!vtsls", "..."],
+    },
+  },
 }
