@@ -136,9 +136,9 @@ alt-shift-8 = 'move-node-to-workspace 8'
 alt-shift-9 = 'move-node-to-workspace 9'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
-alt-tab = 'workspace-back-and-forth'
+alt-shift-tab = 'workspace-back-and-forth'
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
-alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+# alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 alt-shift-semicolon = 'mode service'
@@ -218,3 +218,8 @@ run = ['move-node-to-workspace 4']
 [[on-window-detected]]
 if.app-id = 'com.apple.Safari.WebApp.8BD940D2-56B6-4100-AE6D-6AC4B7262A39'
 run = ['move-node-to-workspace 5']
+
+# Float: Keymapp
+[[on-window-detected]]
+if.app-id = 'io.zsa.keymapp'
+run = ['layout floating']
