@@ -1,18 +1,26 @@
 # General
+
+## Shell integration
+shell-integration = fish
+
+## Update channel
+### ref: https://mitchellh.com/writing/ghostty-memory-leak-fix
+auto-update-channel = tip
+
 ## Style
-theme = kanso-zen
+theme = Catppuccin Mocha
 cursor-style = block
 adjust-cell-height = 20%
-background-opacity = 0.95
-background-blur-radius = 20
+background-opacity = 1.0
 
 ## Behaviors
 mouse-hide-while-typing = true
 confirm-close-surface = false
+mouse-scroll-multiplier = 0.4
 
 ## Fonts
 font-family = JetBrainsMonoNL Nerd Font
-font-size = 16
+font-size = 18
 
 ## MacOS
 macos-titlebar-style = hidden
@@ -20,8 +28,9 @@ macos-option-as-alt = true
 
 ## Window
 window-padding-balance = true
-window-padding-x = 10
-window-padding-y = 10
+window-padding-color = background
+window-padding-x = 0
+window-padding-y = 0
 window-save-state = always
 
 # Keybindings
