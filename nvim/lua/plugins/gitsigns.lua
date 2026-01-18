@@ -1,0 +1,72 @@
+return {
+	{
+		"lewis6991/gitsigns.nvim",
+		opts = {
+			on_attach = function(bufnr)
+				local gitsigns = require("gitsigns")
+
+				local function map(mode, l, r, opts)
+					opts = opts or {}
+					opts.buffer = bufnr
+					vim.keymap.set(mode, l, r, opts)
+				end
+
+				-- Navigation
+				map("n", "]c", function()
+					if vim.wo.diff then
+						vim.cmd.normal({ "]c", bang = true })
+					else
+						gitsigns.nav_hunk("next")
+					end
+				end, { desc = "git go next [c]hange" })
+
+				map("n", "[c", function()
+					if vim.wo.diff then
+						vim.cmd.normal({ "[c", bang = true })
+					else
+						gitsigns.nav_hunk("prev")
+					end
+				end, { desc = "git go previous [c]hange" })
+
+				-- Actions
+				map("n", "<leader>hs", gitsigns.stage_hunk, { desc = "git [s]tage hunk" })
+				map("n", "<leader>hr", gitsigns.reset_hunk, { desc = "git [r]eset hunk" })
+
+				map("v", "<leader>hs", function()
+					gitsigns.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
+				end)
+
+				map("v", "<leader>hr", function()
+					gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
+				end)
+
+				map("n", "<leader>hS", gitsigns.stage_buffer, { desc = "git stage [S]tage buffer" })
+				map("n", "<leader>hR", gitsigns.reset_buffer, { desc = "git stage [R]eset buffer" })
+				map("n", "<leader>hp", gitsigns.preview_hunk, { desc = "git [p]review hunk" })
+				map("n", "<leader>hi", gitsigns.preview_hunk_inline, { desc = "git preview hunk [i]nline" })
+
+				map("n", "<leader>hb", function()
+					gitsigns.blame_line({ full = true }, { desc = "git [b]lame line" })
+				end)
+
+				map("n", "<leader>hd", gitsigns.diffthis, { desc = "git [d]iff against index" })
+
+				map("n", "<leader>hD", function()
+					gitsigns.diffthis("~", { desc = "git [D]iff last commit" })
+				end)
+
+				map("n", "<leader>hQ", function()
+					gitsigns.setqflist("all")
+				end)
+				map("n", "<leader>hq", gitsigns.setqflist)
+
+				-- Toggles
+				map("n", "<leader>tb", gitsigns.toggle_current_line_blame, { desc = "git toggle [b]lame" })
+				map("n", "<leader>tw", gitsigns.toggle_word_diff, { desc = "git toggle [w]ord diff" })
+
+				-- Text object
+				map({ "o", "x" }, "ih", gitsigns.select_hunk)
+			end,
+		},
+	},
+}
