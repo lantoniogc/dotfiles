@@ -179,12 +179,19 @@ alt-p = ['exec-and-forget open -a "Proton Mail.app"', 'mode main']
 alt-m = ['exec-and-forget open -a "Youtube Music.app"', 'mode main']
 # [Z]ed
 alt-z = ['exec-and-forget open -a Zed.app', 'mode main']
-
 # Find app-id: osascript -e 'id of app "App name"'
 
 # Workspace 1: Editor
 [[on-window-detected]]
 if.app-id = 'dev.zed.Zed'
+run = ['move-node-to-workspace 1']
+
+[[on-window-detected]]
+if.app-id = 'com.google.antigravity'
+run = ['move-node-to-workspace 1']
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.VSCode'
 run = ['move-node-to-workspace 1']
 
 # Workspace 2: Terminal
@@ -216,7 +223,7 @@ run = ['move-node-to-workspace 4']
 
 # Workspace 5: Music
 [[on-window-detected]]
-if.app-id = 'com.apple.Safari.WebApp.8BD940D2-56B6-4100-AE6D-6AC4B7262A39'
+if.app-id = 'com.apple.Music'
 run = ['move-node-to-workspace 5']
 
 # Float: Keymapp
