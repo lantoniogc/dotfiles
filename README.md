@@ -8,3 +8,6 @@ stow -nSv .
 # Apply changes
 stow .
 ```
+
+## Clone [Catppuccin for Tmux](https://github.com/catppuccin/tmux/tree/main#manual-recommended)
+
