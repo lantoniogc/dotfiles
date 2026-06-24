@@ -21,7 +21,6 @@ return {
 
 			require("mini.bracketed").setup()
 
-			require("mini.files").setup()
 			vim.keymap.set("n", "\\", ":lua MiniFiles.open()<cr>", { desc = "Mini [F]iles" })
 
 			local statusline = require("mini.statusline")
