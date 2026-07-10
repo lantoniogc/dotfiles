@@ -3,10 +3,6 @@
 ## Shell integration
 shell-integration = fish
 
-## Update channel
-### ref: https://mitchellh.com/writing/ghostty-memory-leak-fix
-auto-update-channel = tip
-
 ## Style
 theme = Catppuccin Mocha
 cursor-style = block
@@ -19,8 +15,8 @@ confirm-close-surface = false
 mouse-scroll-multiplier = 0.4
 
 ## Fonts
-font-family = JetBrainsMonoNL Nerd Font
-font-size = 18
+font-family = BerkeleyMono Nerd Font Mono
+font-size = 17
 
 ## MacOS
 macos-titlebar-style = hidden
