@@ -1,8 +1,6 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
-		lazy = false,
-		build = ":TSUpdate",
 		opts = {
 			ensure_installed = {
 				"bash",
@@ -10,6 +8,8 @@ return {
 				"diff",
 				"go",
 				"html",
+				"javascript",
+				"json",
 				"lua",
 				"luadoc",
 				"markdown",
@@ -17,16 +17,13 @@ return {
 				"python",
 				"query",
 				"rust",
+				"toml",
+				"tsx",
+				"typescript",
 				"vim",
 				"vimdoc",
+				"yaml",
 			},
-			-- Autoinstall languages that are not installed
-			auto_install = true,
-			highlight = {
-				enable = true,
-				additional_vim_regex_highlighting = { "ruby" },
-			},
-			indent = { enable = true, disable = { "ruby" } },
 		},
 	},
 }

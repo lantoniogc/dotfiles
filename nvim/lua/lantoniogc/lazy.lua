@@ -1,23 +1,50 @@
+-- Load or install lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-	local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-	if vim.v.shell_error ~= 0 then
-		vim.api.nvim_echo({
-			{ "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-			{ out, "WarningMsg" },
-			{ "\nPress any key to exit..." },
-		}, true, {})
-		vim.fn.getchar()
-		os.exit(1)
-	end
+  -- stylua: ignore
+  vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", "--branch=stable", lazypath })
 end
-vim.opt.rtp:prepend(lazypath)
+vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
+-- End lazy.nvim setup
 
--- Setup lazy.nvim
+-- Configure LazyVim
+-- https://www.lazyvim.org/configuration/lazy.nvim
+local theme = "catppuccin-mocha"
+
 require("lazy").setup({
 	spec = {
+		{
+			"LazyVim/LazyVim",
+			opts = {
+				colorscheme = theme,
+				defaults = {
+					autocmds = true, -- lazyvim.config.autocmds
+					keymaps = false, -- lazyvim.config.keymaps
+					options = true, -- lazyvim.config.options
+				},
+			},
+			import = "lazyvim.plugins",
+		},
 		{ import = "plugins" },
 	},
-	checker = { enabled = true },
+	install = { colorscheme = { theme } },
+	defaults = {
+		lazy = false,
+		version = false,
+	},
+	checker = { enabled = false }, -- automatically check for plugin updates
+	performance = {
+		rtp = {
+			disabled_plugins = {
+				"gzip",
+				-- "matchit",
+				-- "matchparen",
+				"netrwPlugin",
+				"tarPlugin",
+				"tohtml",
+				"tutor",
+				"zipPlugin",
+			},
+		},
+	},
 })
