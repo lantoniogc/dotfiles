@@ -7,7 +7,17 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+    "anthropic_retention": false
+  },
+  "proxy": "",
+  "project_panel": {
+    "dock": "left"
+  },
   "git_panel": {
+    "dock": "left",
     "tree_view": true
   },
   "sticky_scroll": {
@@ -22,32 +32,24 @@
     "button": false,
   },
   "bottom_dock_layout": "contained",
-  "ui_font_family": ".ZedSans",
   "inlay_hints": {
     "enabled": true,
   },
   "edit_predictions": {
+    "allow_data_collection": "no",
+    "provider": "zed",
     "mode": "subtle",
-    "copilot": {
-      "proxy": null,
-      "proxy_no_verify": null,
-    },
-    "enabled_in_text_threads": false,
   },
   "show_edit_predictions": true,
-  "features": {
-    "edit_prediction_provider": "copilot",
-  },
   "icon_theme": "Material Icon Theme",
-  "buffer_font_family": "JetBrainsMonoNL Nerd Font",
+  "buffer_font_family": "BerkeleyMono Nerd Font Mono",
   "vim_mode": true,
   "relative_line_numbers": "disabled",
   "agent": {
+    "enable_feedback": false,
+    "sidebar_side": "right",
+    "dock": "right",
     "default_profile": "write",
-    "default_model": {
-      "provider": "copilot_chat",
-      "model": "claude-sonnet-4.5",
-    },
   },
   "ensure_final_newline_on_save": false,
   "ui_font_size": 16,
@@ -66,20 +68,6 @@
         },
         "experimental": {
           "rename": true,
-        },
-      },
-    },
-    "basedpyright": {
-      "settings": {
-        "python": {
-          "pythonPath": ".venv/bin/python",
-        },
-        "basedpyright.analysis": {
-          "diagnosticMode": "workspace",
-          "typeCheckingMode": "standard",
-          "inlayHints": {
-            "callArgumentNames": false,
-          },
         },
       },
     },
